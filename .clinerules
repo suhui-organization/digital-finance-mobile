@@ -1,0 +1,51 @@
+# =============================================================================
+# Cline Rules — digital-finance-mobile (移动端前端)
+# Next.js 16 + React 19 + TypeScript + Tailwind CSS 4 + daisyUI
+# =============================================================================
+
+## 技术栈
+- 框架: Next.js 16 (App Router)
+- UI: React 19 + Tailwind CSS 4 + daisyUI 5
+- 状态管理: React Context + useReducer
+- 图标: @heroicons/react
+- 开发端口: 16020
+
+## 目录结构约定
+```
+src/
+  app/           # Next.js App Router 页面
+  components/    # 可复用组件
+  lib/           # 工具函数、API 客户端
+  hooks/         # 自定义 Hooks
+  types/         # TypeScript 类型定义
+```
+
+## 移动端适配规范
+- 设计基准: 375px (iPhone SE)
+- 响应式适配: 使用 Tailwind 断点 sm/md/lg
+- 触摸交互: 按钮最小点击区域 44x44px
+- 滚动: 使用原生滚动，避免自定义滚动条
+- 安全区域: 考虑 iOS Safe Area (使用 env(safe-area-inset-*))
+- 键盘处理: 表单输入时处理键盘弹出
+
+## 组件编写规范
+- 使用函数组件 + Hooks
+- 所有组件 Props 必须定义 TypeScript 接口
+- 移动端优先设计，逐步增强桌面端体验
+- 使用 daisyUI 组件时，优先选择移动端友好的变体
+
+## 性能优化
+- 图片懒加载 (loading="lazy")
+- 路由预取 (next/link prefetch)
+- 减少首屏 JS 体积
+- 骨架屏代替 loading spinner
+
+## 测试
+- 单元测试: Jest + React Testing Library
+- E2E: Playwright (移动端视口)
+
+## Cline 行为规则
+- 修改前确认移动端和桌面端表现一致
+- 新增依赖前确认必要性（移动端包体积敏感）
+- 修改后运行 `yarn lint` 检查
+- 测试需覆盖主流移动端浏览器 (Safari iOS, Chrome Android)
