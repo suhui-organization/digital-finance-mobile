@@ -16,7 +16,9 @@ services:
       NODE_ENV: production
       PORT: "16020"
       HOSTNAME: "0.0.0.0"
-      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://go-backend:16080}
+      # NOT SET: 为空则浏览器使用相对路径 /api/...，经 Nginx Gateway (port 16000) 反向代理到 go-backend:16080
+      # 如需覆盖，设置 NEXT_PUBLIC_API_BASE_URL=http://nginx:80（Docker 内部）或完整外部 URL
+      NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL:-}
     logging:
       driver: json-file
       options:

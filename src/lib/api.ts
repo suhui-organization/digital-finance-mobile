@@ -8,7 +8,11 @@
  * V2 (DESIGN_DOC 26-31): proper auth with access/refresh tokens, auth guard.
  */
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:16080';
+// 架构原则：admin/mobile 通过 Nginx Gateway (port 16000) 反向代理访问 backend
+// 生产/Docker 环境使用空字符串（相对路径，同源请求经 Nginx 路由 /api/ → go-backend:16080）
+// 本地开发可通过 .env.local 设置 NEXT_PUBLIC_API_BASE_URL=http://localhost:16000（走 gateway）
+// 或直接连 backend: NEXT_PUBLIC_API_BASE_URL=http://localhost:16080（仅开发调试）
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || '';
 
 // --- Auth ---
 

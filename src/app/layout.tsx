@@ -16,7 +16,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="zh-CN">
+    <html lang="zh-CN" suppressHydrationWarning>
       <body className="flex justify-center min-h-screen pb-16">
         <div className="w-full max-w-[420px] px-4 pt-4">
           <ClientLayout>{children}</ClientLayout>
