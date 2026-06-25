@@ -108,7 +108,7 @@ export const defaultReviewForm = (): ReviewForm => ({
   age: 0,
   maritalStatus: "",
   loanAmount: 0,
-  isEnterprise: "",
+  isEnterprise: "否",
   canMatch: "",
   mainBank: "",
   debtDetails: [defaultDebtDetail()],

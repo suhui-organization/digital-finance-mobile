@@ -31,7 +31,6 @@ export default function HomePage() {
   const [createdReviewId, setCreatedReviewId] = useState<string | null>(null);
 
   // Hydration-safe init: defer localStorage reads to mount
-  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     const draft = loadDraft();
     if (draft) {
@@ -40,7 +39,6 @@ export default function HomePage() {
     }
     setFormReady(true);
   }, []);
-  /* eslint-enable react-hooks/set-state-in-effect */
 
   const inputClass =
     "w-full px-3 py-2.5 border border-[#e2e8f0] rounded-lg text-sm bg-[#fafbfc] focus:outline-none focus:border-[#3b82f6] focus:shadow-[0_0_0_3px_rgba(59,130,246,0.1)] transition-colors";
